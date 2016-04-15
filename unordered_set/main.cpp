@@ -1,5 +1,6 @@
 #include <iostream>
 #include <boost/unordered_set.hpp>
+#include <algorithm>
 
 using namespace std;
 using namespace boost;
@@ -20,6 +21,20 @@ int main(int argc, char *argv[])
     cout<<*s.find(2)<< endl;
 
     s.erase(5);
+
+    typedef complex<double> complex_t;
+
+    unordered_set<complex_t> s1;
+    s1.emplace(1.0,2.0);
+    s1.emplace(3.0,4.0);
+    for (auto &x : s1) {
+        cout<<x<<endl;
+     }
+    s1.emplace_hint(s1.begin(),5.0,6.0);
+    for (auto &y : s1) {
+        cout<<y<<endl;
+    }
+
 
     return 0;
 }
